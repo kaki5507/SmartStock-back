@@ -2,10 +2,12 @@ package com.smartstock.service;
 
 import com.smartstock.model.Product;
 import com.smartstock.SmartStockBackendApplication;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import static org.junit.jupiter.api.Assertions.*;
 import java.util.List;
 
 @SpringBootTest(classes = SmartStockBackendApplication.class)
