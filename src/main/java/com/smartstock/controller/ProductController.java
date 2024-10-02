@@ -15,12 +15,12 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
-    @GetMapping
+    @GetMapping("/all")
     public List<Product> getAllProducts(){
         return productService.getAllProducts();                 // 모든 상품 조회
     }
 
-    @PostMapping
+    @PostMapping("/create")
     public Product createProduct(@RequestBody Product product){
         return productService.createProduct(product);           // 상품 생성
     }
@@ -30,8 +30,9 @@ public class ProductController {
         Product product = productService.getProductById(id);
         if (product != null) {
             return ResponseEntity.ok(product); // 특정 상품 조회
+        } else {
+            return ResponseEntity.notFound().build(); // 상품이 없을 경우
         }
-        return ResponseEntity.notFound().build(); // 상품이 없을 경우
     }
 
     @PutMapping("/{id}")
